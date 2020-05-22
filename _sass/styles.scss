@@ -17,6 +17,10 @@
 
 // Global
 .content {
+  > * {
+    z-index: 9;
+  }
+
   &__aside {
     @include dark-background();
   }

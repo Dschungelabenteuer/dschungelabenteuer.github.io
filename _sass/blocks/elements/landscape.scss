@@ -6,8 +6,8 @@
   overflow: hidden;
 
   &__layer {
-    position: absolute;
-    width: 100%;
+    position: fixed;
+    width: $aside-width;
     max-width: 100%;
     height: 100%;
 
@@ -16,6 +16,10 @@
     pointer-events: none;
     transition: all cubic-bezier(0, 0.78, 0, 0.99) 2000ms;
 
+    @include media('tablet', 'maximum') {
+      width: 100%;
+    }
+
     &[data-layer="background"] {
       background-position: top left;
       transform: translateY(-100vh);
@@ -23,14 +27,18 @@
     }
 
     &[data-layer="foreground"] {
+      position: absolute;
+      width: 100%;
       background-position: top center;
       transform: translateY(-200vh);
       z-index: 7;
     }
 
     &[data-layer="overflow"] {
+      position: absolute;
+      width: 100%;
       background-color: $background-dark;
-      transform: translateY(-102vh);
+      transform: translateY(-104vh);
       z-index: 8;
     }
 
@@ -63,6 +71,7 @@
     }
 
     &[data-layer="logo"] {
+      position: fixed;
       margin-top: 30vh;
       opacity: 0;
 
@@ -72,6 +81,10 @@
       transform: translateY(-1.5rem) scale(1.1);
       z-index: 7;
 
+      @include media('tablet', 'maximum') {
+        width: 100%;
+      }
+
       &.visible {
         opacity: 1;
         transform: translateY(-2rem) scale(1);
@@ -79,6 +92,10 @@
 
       svg {
         max-width: 14rem;
+
+        @include media('tablet', 'maximum') {
+          max-width: 11rem;
+        }
       }
     }
   }

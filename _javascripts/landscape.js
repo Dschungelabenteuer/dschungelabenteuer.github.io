@@ -14,17 +14,17 @@ const layers = [
 const landscape = document.querySelector('.js-landscape');
 /** Layers nodes. */
 const layerNodes = document.querySelectorAll("[data-type='parallax']");
-
+/** Parallax effect onscroll */
 const parallaxListener = () => {
   let topDistance = window.pageYOffset || window.scrollY;
   if (topDistance < landscape.offsetHeight || landscape.offsetHeight === 0) {
     for (let layer of layerNodes) {
       layer.style.transition = '';
-      let layerName = layer.getAttribute('data-layer')
-      if (layerName === 'overflow') {
-        topDistance = topDistance - window.innerHeight;
-      }
-      translateVerticality(layer, -(topDistance * layer.getAttribute('data-depth')));
+      let layerName = layer.getAttribute('data-layer');
+      if (layerName === 'foreground') continue;
+      let depth = layer.getAttribute('data-depth');
+      let movement = -(topDistance * depth);
+      translateVerticality(layer, movement);
     }
   }
 };
@@ -34,6 +34,10 @@ const parallaxListener = () => {
  */
 const setParallax = () => {
   for (let layer of layerNodes) {
+    // Overflow layer is now pointless
+    if (layer.getAttribute('data-layer') === 'overflow') {
+      layer.parentNode.removeChild(layer);
+    }
     layer.classList.add('notransition');
   }
   window.addEventListener('scroll', parallaxListener);
