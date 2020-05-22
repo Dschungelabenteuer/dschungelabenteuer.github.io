@@ -1,0 +1,28 @@
+// Layouts
+$aside-width: 40%;
+$content-width: 60%;
+
+.l-horizontal {
+  display: flex;
+  flex-direction: row;
+
+  @include media('tablet', 'maximum') {
+    flex-direction: column;
+  }
+}
+
+.l-left {
+  width: $aside-width;
+
+  @include media('tablet', 'maximum') {
+    width: 100%;
+  }
+}
+
+.l-right {
+  width: $content-width;
+
+  @include media('tablet', 'maximum') {
+    width: 100%;
+  }
+}

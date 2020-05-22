@@ -1,0 +1,272 @@
+/*---------------------------------------------
+ * Device list
+ *-------------------------------------------*/
+
+$devices: (
+  /* Smaller devices ... */
+  'max-phone': '430px',
+  'min-phablet': '431px',
+  'max-phablet': '767px',
+  'min-tablet': '768px',
+  'max-tablet': '991px',
+  'min-small': '992px',
+  'max-small': '1199px',
+  'min-desktop': '1200px',
+  'max-desktop': '1639px',
+  'min-large': '1640px',
+  /* Larger devices ... */
+);
+
+/*---------------------------------------------
+ * Device media mixin
+ *-------------------------------------------*/
+@mixin media($device, $condition) {
+  /*
+   * Device specific
+   */
+  @if ($condition == 'only') {
+    @if ($device == 'phone') {
+      @media (max-width: map-get($devices, 'max-phone')) {
+        @content;
+      }
+    } @else if ($device == 'large') {
+      @media (min-width: map-get($devices, 'min-large')) {
+        @content;
+      }
+    } @else {
+      $media-min-width: map-get($devices, 'min-' + $device);
+      $media-max-width: map-get($devices, 'max-' + $device);
+
+      @media (min-width: #{$media-min-width}) and (max-width: #{$media-max-width}) {
+        @content;
+      }
+    }
+
+  /*
+   * Specified device and larger
+   */
+  } @else if ($condition == 'minimum') {
+    @if ($device == 'large') {
+      @media (min-width: map-get($devices, 'min-large')) {
+        @content;
+      }
+    } @else if ($device == 'phone') {
+      // Ignore
+    } @else {
+      $media-min-width: map-get($devices, 'min-' + $device);
+
+      @media (min-width: #{$media-min-width}) {
+        @content;
+      }
+    }
+
+  /*
+   * Specified device and smaller
+   */
+  } @else if ($condition == 'maximum') {
+    @if ($device == 'phone') {
+      @media (max-width: map-get($devices, 'max-phone')) {
+        @content;
+      }
+    } @else if ($device == 'large') {
+      // Ignore
+    } @else {
+      $media-max-width: map-get($devices, 'max-' + $device);
+
+      @media (max-width: #{$media-max-width}) {
+        @content;
+      }
+    }
+  }
+}
+
+/*---------------------------------------------
+ * Custom media mixin
+ *-------------------------------------------*/
+@mixin fixed-media($width, $condition) {
+  @if ($condition == 'only') {
+    @media (min-width: #{$width}) and (max-width: #{$width}) {
+      @content;
+    }
+  } @else if ($condition == 'minimum') {
+    @media (min-width: #{$width}) {
+      @content;
+    }
+  } @else if ($condition == 'maximum') {
+    @media (max-width: #{$width}) {
+      @content;
+    }
+  }
+}
+
+/*---------------------------------------------
+ * Classes & a11y helpers
+ *-------------------------------------------*/
+.phone-max,
+.phablet-min,
+.phablet-max,
+.phablet-only,
+.tablet-min,
+.tablet-max,
+.tablet-only,
+.small-min,
+.small-max,
+.small-only,
+.desktop-min,
+.desktop-max,
+.desktop-only,
+.large-min {
+  display: none;
+
+  &.and-sr {
+    display: initial;
+    position: absolute;
+    top: -99999px;
+    left: -99999px;
+
+    &:focus {
+      display: initial;
+      position: initial;
+    }
+  }
+}
+
+.phone-max {
+  @include media('phone', 'maximum') {
+    display: initial !important;
+
+    &.and-sr {
+      position: initial !important;
+    }
+  }
+}
+
+.phablet-min {
+  @include media('phablet', 'minimum') {
+    display: initial !important;
+
+    &.and-sr {
+      position: initial !important;
+    }
+  }
+}
+
+.phablet-max {
+  @include media('phablet', 'maximum') {
+    display: initial !important;
+
+    &.and-sr {
+      position: initial !important;
+    }
+  }
+}
+
+.phablet-only {
+  @include media('phablet', 'only') {
+    display: initial !important;
+
+    &.and-sr {
+      position: initial !important;
+    }
+  }
+}
+
+.tablet-min {
+  @include media('tablet', 'minimum') {
+    display: initial !important;
+
+    &.and-sr {
+      position: initial !important;
+    }
+  }
+}
+
+.tablet-max {
+  @include media('tablet', 'maximum') {
+    display: initial !important;
+
+    &.and-sr {
+      position: initial !important;
+    }
+  }
+}
+
+.tablet-only {
+  @include media('tablet', 'only') {
+    display: initial !important;
+
+    &.and-sr {
+      position: initial !important;
+    }
+  }
+}
+
+.small-min {
+  @include media('small', 'minimum') {
+    display: initial !important;
+
+    &.and-sr {
+      position: initial !important;
+    }
+  }
+}
+
+.small-max {
+  @include media('small', 'maximum') {
+    display: initial !important;
+
+    &.and-sr {
+      position: initial !important;
+    }
+  }
+}
+
+.small-only {
+  @include media('small', 'only') {
+    display: initial !important;
+
+    &.and-sr {
+      position: initial !important;
+    }
+  }
+}
+
+.desktop-min {
+  @include media('desktop', 'minimum') {
+    display: initial !important;
+
+    &.and-sr {
+      position: initial !important;
+    }
+  }
+}
+
+.desktop-max {
+  @include media('desktop', 'maximum') {
+    display: initial !important;
+
+    &.and-sr {
+      position: initial !important;
+    }
+  }
+}
+
+.desktop-only {
+  @include media('desktop', 'only') {
+    display: initial !important;
+
+    &.and-sr {
+      position: initial !important;
+    }
+  }
+}
+
+.large-min {
+  @include media('large', 'minimum') {
+    display: initial !important;
+
+    &.and-sr {
+      position: initial !important;
+    }
+  }
+}

@@ -1,0 +1,71 @@
+// Typography utilities
+
+// Font sizes
+$font-size-xxl: 3rem;
+$font-size-xl: 2.05rem;
+$font-size-l: 1.5rem;
+$font-size-m: 1rem;
+$font-size-s: 0.8rem;
+$font-size-xs: 0.65rem;
+
+// Base font size
+html {
+  font-size: 100%;
+
+  @include media('phone', 'maximum') {
+    font-size: 125%;
+  }
+
+  @include media('phablet', 'only') {
+    font-size: 118.75%;
+  }
+
+  @include media('tablet', 'only') {
+    font-size: 112.5%;
+  }
+
+  @include media('small', 'only') {
+    font-size: 106.25%;
+  }
+}
+
+// Body style
+body {
+  font-family: 'Lora', serif;
+}
+
+// Paragraph style
+p {
+  font-size: 112.5%;
+  line-height: 1.618em;
+}
+
+// Heading style
+h1 {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: $font-size-xxl;
+  line-height: 1em;
+}
+
+h2 {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: $font-size-xl;
+  line-height: 1em;
+}
+
+h3 {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: $font-size-l;
+  line-height: 1em;
+}
+
+h4 {
+  font-size: $font-size-l;
+  font-weight: bold;
+  line-height: 1em;
+}
+
+h5 {
+  font-size: $font-size-m;
+  line-height: 1em;
+}

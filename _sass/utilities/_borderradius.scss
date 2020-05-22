@@ -1,0 +1,29 @@
+// Border-radius variables
+$radius-xs: 0.15em;
+$radius-s: 0.275em;
+$radius-m: 0.5em;
+$radius-l: 1em;
+$radius-xl: 1.5em;
+
+// Classes helpers
+.br {
+  &--xs {
+    border-radius: $radius-xs;
+  }
+
+  &--s {
+    border-radius: $radius-s;
+  }
+
+  &--m {
+    border-radius: $radius-m;
+  }
+
+  &--l {
+    border-radius: $radius-l;
+  }
+
+  &--xl {
+    border-radius: $radius-xl;
+  }
+}

@@ -1,0 +1,48 @@
+// Colors
+$background-dark: #1a2239;
+$background-light: #fff;
+$background-light-alt: #e9ecf5;
+$color-light-heading: #3b536b;
+$color-light-text: #4f4f65;
+$color-dark-heading: #d4dcf1;
+$color-dark-text: #a3b3da;
+
+// Register as CSS variables (e.g. for Custom Elements)
+:root,
+custom-modal {
+  --background-dark: #{$background-dark};
+  --background-light: #{$background-light};
+  --background-light-alt: #{$background-light-alt};
+  --color-light-heading: #{$color-light-heading};
+  --color-light-text: #{$color-light-text};
+  --color-dark-heading: #{$color-dark-heading};
+  --color-dark-text: #{$color-dark-text};
+}
+
+@mixin alt-light-background() {
+  background: $background-light-alt;
+  color: $color-light-text;
+  box-shadow: inset 1rem 0 1rem rgba($background-dark, 0.10);
+
+  h1, h2, h3, h4, h5 {
+    color: $color-light-heading;
+  }
+}
+
+@mixin light-background() {
+  background: $background-light;
+  color: $color-light-text;
+
+  h1, h2, h3, h4, h5 {
+    color: $color-light-heading;
+  }
+}
+
+@mixin dark-background() {
+  background: $background-dark;
+  color: $color-dark-text;
+
+  h1, h2, h3, h4, h5 {
+    color: $color-dark-heading;
+  }
+}

@@ -1,0 +1,13 @@
+// Introduction style
+.introduction {
+  max-width: 55rem;
+  padding: 2rem;
+
+  h1 {
+    font-size: $font-size-xl;
+  }
+
+  p {
+    font-size: $font-size-l;
+  }
+}

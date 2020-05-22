@@ -1,0 +1,35 @@
+@charset 'utf-8';
+
+// Bootstrap's reboot
+@import 'utilities/reboot';
+// Import utilities.
+@import 'utilities/typefaces';
+@import 'utilities/animations';
+@import 'utilities/borderradius';
+@import 'utilities/boxshadows';
+@import 'utilities/breakpoints';
+@import 'utilities/mixins';
+@import 'utilities/typography';
+@import 'utilities/layouts';
+@import 'utilities/colors';
+// Import blocks
+@import 'blocks/hero';
+
+// Global
+.content {
+  &__aside {
+    @include dark-background();
+  }
+
+  &__primary {
+    @include light-background();
+  }
+
+  .section {
+    padding: 2rem;
+
+    &:nth-child(odd) {
+      @include alt-light-background();
+    }
+  }
+}

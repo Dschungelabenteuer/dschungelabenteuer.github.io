@@ -1,0 +1,29 @@
+// Box-shadow variables
+$shadow-xs: rgba;
+$shadow-s: rgba;
+$shadow-m: rgba;
+$shadow-l: rgba;
+$shadow-xl: rgba;
+
+// Classes helpers
+.bs {
+  &--xs {
+    border-radius: $shadow-xs;
+  }
+
+  &--s {
+    border-radius: $shadow-s;
+  }
+
+  &--m {
+    border-radius: $shadow-m;
+  }
+
+  &--l {
+    border-radius: $shadow-l;
+  }
+
+  &--xl {
+    border-radius: $shadow-xl;
+  }
+}

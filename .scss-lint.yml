@@ -1,0 +1,97 @@
+scss_files: './**/*.css.scss'
+
+exclude:
+  - './_sass/utilities/_reboot.scss'
+  - './assets/main.scss'
+
+linters:
+  BorderZero:
+    enabled: false
+
+  Indentation:
+    exclude:
+      - 'path/to/file.scss'
+      - 'path/to/directory/**'
+    severity: warning
+    width: 2
+
+  Comment:
+    enabled: false
+
+  ImportantRule:
+    enabled: false
+
+  LeadingZero:
+    enabled: true
+    style: include_zero
+
+  UrlFormat:
+    enabled: false
+
+  SingleLinePerSelector:
+    enabled: false
+
+  NestingDepth:
+    enabled: false
+
+  PropertySortOrder:
+    order:
+      - display
+      -
+      - flex-direction
+      - flex-wrap
+      - flex-grow
+      - flex-shrink
+      - justify-content
+      - justify-self
+      - align-items
+      - align-self
+      -
+      - position
+      - top
+      - right
+      - left
+      - bottom
+      - width
+      - min-width
+      - max-width
+      - height
+      - min-height
+      - max-height
+      - margin
+      - margin-top
+      - margin-right
+      - margin-bottom
+      - margin-left
+      - padding
+      - padding-top
+      - padding-right
+      - padding-bottom
+      - padding-left
+      - border
+      -
+      - background
+      - background-color
+      - background-repeat
+      - background-size
+      - background-position
+      - box-shadow
+      - outline
+      - opacity
+      - visibility
+      -
+      - color
+      - font-family
+      - font-size
+      - font-weight
+      - text-align
+      - text-transform
+      - text-decoration
+      -
+      - cursor
+      - pointer-events
+      -
+      - transition
+      - transition-delay
+      -
+      - transform

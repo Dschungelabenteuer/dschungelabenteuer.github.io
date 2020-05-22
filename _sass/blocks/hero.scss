@@ -1,0 +1,28 @@
+@import 'elements/introduction';
+@import 'elements/landscape';
+
+.hero {
+  height: 100vh;
+  overflow: hidden;
+
+  @include media('tablet', 'maximum') {
+    height: auto;
+  }
+
+  &__landscape {
+    @include dark-background();
+    height: 100%;
+  }
+
+  &__introduction {
+    @include light-background();
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    @include media('tablet', 'maximum') {
+      @include dark-background();
+    }
+  }
+}
