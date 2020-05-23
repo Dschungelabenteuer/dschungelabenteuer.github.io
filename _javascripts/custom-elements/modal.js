@@ -45,7 +45,6 @@ export default class Modal extends HTMLElement {
     // Accessibility support
     if (!this.hasAttribute('role')) this.setAttribute('role', 'dialog');
     if (!this.hasAttribute('aria-modal')) this.setAttribute('aria-modal', 'true');
-    if (!this.hasAttribute('aria-labelledby')) this.setAttribute('aria-labelledby', `${id}-title`)
     window.addEventListener('keyup', keyboardSupport.bind(null, me));
   }
 
@@ -143,7 +142,6 @@ export default class Modal extends HTMLElement {
       <div class="modal_wrapper">
         <div class="modal__backdrop"></div>
         <div class="modal__container">
-          <h3 id="${id}-title" class="sr-only">${title}</h3>
           <button class="modal__closeBtn" type="button" title="Close window">
             ${closeIcon}
           </button>
