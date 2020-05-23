@@ -80,8 +80,10 @@ linters:
       - border-bottom-color
       - border-left
       - border-left-color
+      - border-color
       - border-radius
       -
+      - outline
       - background
       - background-color
       - background-repeat

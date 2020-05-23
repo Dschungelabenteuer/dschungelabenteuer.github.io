@@ -9,11 +9,11 @@
 
   svg {
     transition: all ease 200ms;
-    fill: $color-light-text;
+    fill: $color-dark-text;
   }
 
   a {
-    color: $color-light-text;
+    color: $color-dark-text;
     transition: all ease 200ms;
 
     &:hover {

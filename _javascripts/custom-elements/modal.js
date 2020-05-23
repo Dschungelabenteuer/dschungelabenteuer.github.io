@@ -9,16 +9,22 @@ export const initModals = () => {
     let targetModal = document.getElementById(modalToggler.getAttribute('aria-controls'));
     if (targetModal) {
       modalToggler.onclick = () => {
-        targetModal.classList.toggle('visible');
+        targetModal.classList.add('visible');
+        document.querySelector('body').style.overflow = 'hidden';
         targetModal.focus();
       };
     }
   }
 };
 
+const closeModal = (element) => {
+  element.classList.remove('visible');
+  document.querySelector('body').style.overflow = 'auto';
+};
+
 const keyboardSupport = (element, event) => {
   if (event.keyCode === 27) {
-    element.classList.remove('visible');
+    closeModal(element);
   }
 };
 
@@ -29,24 +35,18 @@ export default class Modal extends HTMLElement {
 
   connectedCallback() {
     this._render();
+    const me = this;
     const id = this.getAttribute('id');
     const closeBtn = this.shadowRoot.querySelector('.modal__closeBtn');
     const backdrop = this.shadowRoot.querySelector('.modal__backdrop');
+    // Close listeners
+    if (closeBtn) closeBtn.onclick = () => closeModal(me);
+    if (backdrop) backdrop.onclick = () => closeModal(me);
     // Accessibility support
     if (!this.hasAttribute('role')) this.setAttribute('role', 'dialog');
     if (!this.hasAttribute('aria-modal')) this.setAttribute('aria-modal', 'true');
     if (!this.hasAttribute('aria-labelledby')) this.setAttribute('aria-labelledby', `${id}-title`)
-    window.addEventListener('keyup', keyboardSupport.bind(null, this));
-    if (closeBtn) {
-      closeBtn.onclick = () => {
-        this.classList.remove('visible');
-      };
-    }
-    if (backdrop) {
-      backdrop.onclick = () => {
-        this.classList.remove('visible');
-      };
-    }
+    window.addEventListener('keyup', keyboardSupport.bind(null, me));
   }
 
   disconnectedCallback() {
