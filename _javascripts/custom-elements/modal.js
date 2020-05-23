@@ -31,6 +31,7 @@ export default class Modal extends HTMLElement {
     this._render();
     const id = this.getAttribute('id');
     const closeBtn = this.shadowRoot.querySelector('.modal__closeBtn');
+    const backdrop = this.shadowRoot.querySelector('.modal__backdrop');
     // Accessibility support
     if (!this.hasAttribute('role')) this.setAttribute('role', 'dialog');
     if (!this.hasAttribute('aria-modal')) this.setAttribute('aria-modal', 'true');
@@ -38,6 +39,11 @@ export default class Modal extends HTMLElement {
     window.addEventListener('keyup', keyboardSupport.bind(null, this));
     if (closeBtn) {
       closeBtn.onclick = () => {
+        this.classList.remove('visible');
+      };
+    }
+    if (backdrop) {
+      backdrop.onclick = () => {
         this.classList.remove('visible');
       };
     }
@@ -65,11 +71,12 @@ export default class Modal extends HTMLElement {
           z-index: 13;
           opacity: 0;
           pointer-events: none;
+          transition: all 300ms ease;
         }
 
         :host(.visible) {
-          transition: opacity 300ms ease;
-          opacity: 1;
+          transition: all 300ms ease;
+          opacity: 1 !important;
           pointer-events: all;
         }
 
@@ -89,13 +96,21 @@ export default class Modal extends HTMLElement {
           width: 80vw;
           height: 80vh;
           margin: 1rem;
-          padding: 1rem;
+          padding: 3rem 1rem 1rem;
           border-radius: 1rem;
           background: var(--background-light);
+          transition: transform cubic-bezier(0.09, 0.9, 0.54, 1.01) 200ms;
+          transform: scale(0.8);
+          box-shadow: 0 19px 38px rgba(var(--background-dark), 0.10), 0 15px 12px rgba(var(--background-dark), 0.12);
+          overflow-y: scroll;
+        }
+
+        :host(.visible)  .modal__container {
+          transform: scale(1);
         }
 
         .modal__closeBtn {
-          position: absolute;
+          position: fixed;
           top: 1rem;
           right: 1rem;
           height: 1.5rem;

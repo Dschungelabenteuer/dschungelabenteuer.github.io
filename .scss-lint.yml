@@ -34,6 +34,9 @@ linters:
   NestingDepth:
     enabled: false
 
+  SelectorFormat:
+    enabled: false
+
   PropertySortOrder:
     order:
       - display
@@ -69,6 +72,15 @@ linters:
       - padding-bottom
       - padding-left
       - border
+      - border-top
+      - border-top-color
+      - border-right
+      - border-right-color
+      - border-bottom
+      - border-bottom-color
+      - border-left
+      - border-left-color
+      - border-radius
       -
       - background
       - background-color

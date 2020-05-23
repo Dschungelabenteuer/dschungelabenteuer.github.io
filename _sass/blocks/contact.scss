@@ -1,0 +1,28 @@
+.contact {
+  &__item {
+    display: block;
+    margin: 1rem 2.5rem;
+    padding: 1rem;
+    border-radius: $radius-m;
+    background: darken($background-dark, 1.5);
+  }
+
+  svg {
+    transition: all ease 200ms;
+    fill: $color-light-text;
+  }
+
+  a {
+    color: $color-light-text;
+    transition: all ease 200ms;
+
+    &:hover {
+      color: $background-light;
+      text-decoration: none;
+
+      svg {
+        fill: $background-light;
+      }
+    }
+  }
+}

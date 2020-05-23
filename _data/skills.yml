@@ -1,0 +1,129 @@
+familiar:
+  - label: Front-end development
+    description: "I have been passionate with web design and user interface since I was 9 years old.
+    I think front-end development was not even a thing back then. You simply used to cut your image into
+    pieces and integrate it into HTML and CSS and maybe use a bit of JavaScript. Old yet gold times! Now
+    with the (r)evolution of JavaScript with things e.g. ECMAScript, libraries and frameworks, things
+    sped up real fast (just look at how people often joke about the amount of new libraries emerging each day).
+    It know gathers a whole set of skills and knowledge which can easily be a full-time occupation. To me, this
+    is definitely one of the most interesting things on the internet since it brings together three major sides:
+    <ul>
+      <li>A <em>creative</em> one with User Interface</li>
+      <li>A <em>social</em> one with the importance of User Experience and accessibility</li>
+      <li>A <em>cognitive</em> one with all the thinking about architecture, scalability and performance</li>
+    </ul>"
+    featured: true
+  - label: Back-end development
+    description: Started as a kid when I was 10 playing around with PHP to make my own portfolio, creating new PHPBB and Wordpress modules
+      for Forum-Toshop, one of the biggest french communities about Photoshop back then. It became quite serious at the university when I
+      started building a platform for students to share recaps of lessons. I started learning about OOP, design patterns, and PHP Frameworks
+      like Slim or CakePHP and was given the oppotunity to work with the University and the European <a href="http://www.otct-project.eu/fr/" title="OTCT Project website">OTCT project</a>.
+    featured: true
+  - label: CSS Methodologies
+    description: "Because stylesheets also deserve to get good practices, to be maintanable and scalable!
+    I'm mostly familiar with BEM, SMACSS and Atomic CSS. If you ever happen to work with me, you might
+    find out that I kind of developped my own methodology over time and experience."
+    featured: true
+  - label: Design patterns
+    description: "When I started working on real and big projects which require scalability and maintainability, I ineluctably ran
+    into design patterns to solve different logical issues I could encounter. While I'm obviously really far away from knowing all of them,
+    I'm quite familiar with the most popular ones such as MVC, Singleton, Factories, Adapters, etc."
+    featured: true
+  - label: Design systems
+    description: "I have built my very first Design System as a side-project while working at BlueKanGo.
+    While this is maybe one of the most time and effort consuming things, this is really satisfying. It brings
+    a very strong foundation that infinitely makes life easier for developers. It gives quick access to
+    ready-to-use components and global orientations in terms of User Experience, User Interface and company strategies.
+    It might also raise your pairs' awareness about things like accessibility, workflows, QA, etc. I strongly believe
+    that every big modern web application should come with its own Design System."
+    featured: true
+  - label: PWA & Service workers
+    description: "I have experienced building Progressive Web Apps with some side projects.
+    I know how to set up a service worker to e.g. provide an offline access to an application. I know
+    how to define different cache strategies to achieve specific targets. While working at BlueKanGo,
+    I was responsible for the upgrade of our offline-first application from the deprecated AppCache
+    technology to the use of a Service Worker."
+    featured: true
+  - label: IndexedDB API
+    description:
+    featured: false
+  - label: SQL
+    description:
+    featured: false
+  - label: MongoDB
+    description:
+    featured: false
+  - label: Agile Scrum
+    description:
+    featured: false
+used:
+  - label: Vue.js
+    description: "Probably the framework (or library, please, I don't want to start a fight!)
+    I'm the most familiar with. At BlueKanGo, I have started building a brand new version of
+    our software's administration application with Vue."
+    featured: true
+
+  - label: Typescript
+    description: "I'm not an expert, not gonna lie, I had some trouble getting it
+    working fine with Vue (vetur keeps trolling me). But I know how to use it
+    and reckon this is going to be the standard in JavaScript development."
+    featured: true
+  - label: Socket.io
+    description: I had the opportonity to try it out building an online "Pictionary".
+  - label: Jekyll
+    description: This website is built with Jekyll ;-)
+  - label: Express.js
+    description:
+    featured: true
+  - label: Webpack
+    description:
+    featured: true
+  - label: Angular
+    description:
+    featured: false
+  - label: Meteor
+    description:
+    featured: false
+    featured: false
+  - label: Docker
+    description:
+    featured: false
+    featured: false
+  - label: Node.js
+    description:
+    featured: false
+  - label: Gulp
+    description:
+    featured: false
+  - label: Sass
+    description:
+    featured: false
+  - label: Grunt
+    description:
+    featured: false
+  - label: Disclaimer
+    description: "Nope, I have never used React. But I'm willing to give it a try next
+    time I have a side project."
+    featured: false
+aware:
+  - label: UX & Accessibility
+    description:
+    featured: true
+  - label: Internationalization
+    description:
+    featured: true
+  - label: Web security
+    description:
+    featured: true
+  - label: Web performance
+    description:
+    featured: true
+  - label: Search Engine Optimization
+    description:
+    featured: false
+  - label: Performance Budget
+    description:
+    featured: false
+  - label: CI/CD
+    description:
+    featured: false

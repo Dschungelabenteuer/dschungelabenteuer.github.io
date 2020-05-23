@@ -1,0 +1,43 @@
+<custom-modal style="opacity: 0;" title="List of concepts or technologies i'm familiar with" id="modal-familiar">
+  <div class="skills__expanded">
+    <article class="skill__category skill__category--familiar">
+      <span class="category__icon">{%- include images/icons/familiar.svg -%}</span>
+      <h4 class="category__title">Things I'm familiar with</h4>
+    </article>
+    {% for item in site.data.skills.familiar %}
+    <article class="skill__detail">
+    <h5>{{ item.label }}</h5>
+    {{ item.description }}
+    </article>
+    {% endfor %}
+  </div>
+</custom-modal>
+<custom-modal style="opacity: 0;" title="List of concepts or technologies i've used" id="modal-used">
+  <div class="skills__expanded">
+    <article class="skill__category skill__category--used">
+      <span class="category__icon">{%- include images/icons/used.svg -%}</span>
+      <h4 class="category__title">Things I've used</h4>
+    </article>
+    {% for item in site.data.skills.used %}
+    <article class="skill__detail">
+    <h5>{{ item.label }}</h5>
+    {{ item.description }}
+    </article>
+    {% endfor %}
+  </div>
+</custom-modal>
+<custom-modal style="opacity: 0;" title="List of concepts or technologies i'm aware of" id="modal-aware">
+  <div class="skills__expanded">
+    <article class="skill__category skill__category--aware">
+      <span class="category__icon">{%- include images/icons/aware.svg -%}</span>
+      <h4 class="category__title">Things I'm aware of</h4>
+      <ul class="category__set">
+    </article>
+    {% for item in site.data.skills.aware %}
+    <article class="skill__detail">
+    <h5>{{ item.label }}</h5>
+    {{ item.description }}
+    </article>
+    {% endfor %}
+  </div>
+</custom-modal>
