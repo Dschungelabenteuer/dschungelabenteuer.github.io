@@ -1,6 +1,3 @@
-
-console.log('Service worker initializing');
-
 const version = 'v1-';
 const cachedFiles = [
   './',
@@ -33,40 +30,26 @@ self.addEventListener("fetch", (event) => {
 
 const getFromCache = (request) => {
   return caches.open(version + 'cgrcritical')
-    .then(function (cache) {
-      return cache.match(request)
-        .then(function(response) {
-          // On renvoie le contenu en cache s'il existe, sinon on tente la réponse network.
-          return (response)
-            ? response
-            : getFromNetwork(request);
-        });
-  });
+    .then(cache => cache.match(request)
+      .then(response => response ? response : getFromNetwork(request))
+    );
 };
 
 const getFromNetwork = (request) => {
   return fetch(request)
-    .then(function (result) {
-      return caches.open(version + 'OfflineMode')
-        .then(function (cache) {
-          return cache.match(request)
-            .then(function (response) {
-              if (response) {
-                // Si le network nous renvoie une réponse pour un des fichiers destinés à être mis en cache, on l'enregistre
-                console.log('Cache updated from network response for', request.url);
-                cache.put(request.url, result.clone());
-              }
-              // On renvoie la réponse network.
-              return result;
-            });
-        })
-        .catch(function (error) {
-          return noMatchBehaviour(request).clone();
-        });
-    })
-    .catch(function (error) {
-      return noMatchBehaviour(request).clone();
-    });
+    .then(result => caches.open(version + 'OfflineMode')
+      .then(cache => cache.match(request)
+        .then(response => {
+            if (response) {
+              console.log('Cache updated from network response for', request.url);
+              cache.put(request.url, result.clone());
+            }
+            return result;
+          }
+        )
+      )
+    )
+    .catch(error => noMatchBehaviour(request).clone());
 };
 
 const noMatchBehaviour = (request) => {
