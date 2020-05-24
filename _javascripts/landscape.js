@@ -10,6 +10,10 @@ const layers = [
   'layer4',
   'stars',
 ];
+/** List of layers source svg */
+const layersData = {};
+/** Duration (ms) of the initial landscape animation */
+const LAYER_TRANSITION_DURATION = 2000;
 /** Landscape's main node. */
 const landscape = document.querySelector('.js-landscape');
 /** Layers nodes. */
@@ -55,23 +59,20 @@ const unsetParallax = () => {
  */
 const toggleLandscape = () => {
   const overflow = document.querySelector('[data-layer="overflow"]');
-  const logo = document.querySelector('[data-layer="logo"]')
-
-  if (logo) logo.classList.add('visible');
   if (overflow) overflow.style.transform = `translateY(100vh)`;
 
   for (let layer in layers) {
     let layerName = layers[layer];
     let layerNode = document.querySelector(`[data-layer="${layerName}"]`);
     if (layerNode) {
-      layerNode.style.backgroundImage = `url("assets/images/landscape/${layerName}.svg")`;
+      layerNode.style.backgroundImage = `url("${layersData[layerName]}")`;
       layerNode.style.transform = `translateY(0)`;
     }
   }
 
   setTimeout(() => {
     setParallax();
-  }, 2000);
+  }, LAYER_TRANSITION_DURATION);
 };
 
 /**
@@ -79,11 +80,15 @@ const toggleLandscape = () => {
  * when all layers are loaded.
  */
 export default () => {
+  const logo = document.querySelector('[data-layer="logo"]')
   const disableParallaxBtn = document.querySelector('.js-disable-parallax');
   const layerCount = layers.length;
   let loadedLayerCount = 0;
 
-  const onLoadedLayer = (layerName) => {
+  if (logo) logo.classList.add('visible');
+
+  const onLoadedLayer = (layerName, data) => {
+    layersData[layerName] = `data:image/svg+xml;utf8,${encodeURIComponent(data)}`;
     ++loadedLayerCount;
     if (loadedLayerCount === layerCount) {
       toggleLandscape();
@@ -92,10 +97,9 @@ export default () => {
 
   for (let layer in layers) {
     fetch(`assets/images/landscape/${layers[layer]}.svg`, { cache: 'force-cache' })
-      .then(response => {
-        if (response.status !== 404) {
-          onLoadedLayer(layers[layer]);
-        }
+      .then(response => response.text())
+      .then(data => {
+        onLoadedLayer(layers[layer], data);
       });
   }
 
