@@ -17,7 +17,12 @@
     transition: all 200ms ease;
     z-index: 12;
 
-    &:hover {
+    &:focus {
+      outline: 2px solid $color-dark-text;
+    }
+
+    &:hover,
+    &:focus {
       background: rgba($color-black, 0.3);
 
       svg {
