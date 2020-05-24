@@ -163,13 +163,30 @@
   padding: 0 0.75rem;
   border: 2px solid transparent;
 
+
+  @include media('phablet', 'maximum') {
+    margin-right: 0;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+
   &.has-desc {
     display: block;
     margin: 1rem;
     padding: 0.5rem 1rem 1rem;
+
+    @include media('phablet', 'maximum') {
+      margin-right: 0;
+      margin-left: 0;
+      padding-right: 0;
+      padding-left: 0;
+    }
   }
 
   &.disclaimer {
+    padding: 0.75rem;
     border-color: $color-success;
     border-radius: $radius-s;
     background: rgba($color-success, 0.15);
