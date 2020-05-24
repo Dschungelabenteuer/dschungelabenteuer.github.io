@@ -9,10 +9,11 @@
     fill: $color;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     .category__more {
-      color: $color;
       border-color: $color;
+      color: $color;
     }
   }
 }
@@ -59,7 +60,8 @@
       margin-bottom: 1rem;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       box-shadow: $shadow-m;
       opacity: 1;
 
@@ -80,7 +82,8 @@
       }
 
 
-      &:hover {
+      &:hover,
+      &:focus {
         box-shadow: $shadow-l;
       }
     }
@@ -155,8 +158,24 @@
 
 // Modal content styles
 .skill__detail {
-  margin: 1rem;
-  padding: 0.5rem 1rem 1rem;
+  display: inline-block;
+  margin: 0.5rem 1rem;
+  padding: 0 0.75rem;
+  border: 2px solid transparent;
+
+  &.has-desc {
+    display: block;
+    margin: 1rem;
+    padding: 0.5rem 1rem 1rem;
+  }
+
+  &.disclaimer {
+    border-color: $color-success;
+    border-radius: $radius-s;
+    background: rgba($color-success, 0.15);
+    box-shadow: inset 0 0 0 2px $background-light;
+
+  }
 
   h5 {
     margin: 0.5rem 0 0.75rem;

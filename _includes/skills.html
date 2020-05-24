@@ -1,5 +1,5 @@
 <section class="skills section">
-  <article class="skills__category skills__category--used" role="button" aria-controls="modal-used">
+  <article class="skills__category skills__category--used" role="button" aria-controls="modal-used" tabindex="0">
     <div class="category__heading">
       <span class="category__icon">{%- include images/icons/used.svg -%}</span>
       <h4 class="category__title">Things I've used</h4>
@@ -12,10 +12,10 @@
         {% endif %}
         {% endfor %}
       </ul>
-      <button class="category__more" type="button">Click to view all</button>
+      <button class="category__more" tabindex="-1" type="button">Click to view all</button>
     </div>
   </article>
-  <article class="skills__category skills__category--familiar" role="button" aria-controls="modal-familiar">
+  <article class="skills__category skills__category--familiar" role="button" aria-controls="modal-familiar" tabindex="0">
     <div class="category__heading">
       <span class="category__icon">{%- include images/icons/familiar.svg -%}</span>
       <h4 class="category__title">Things I'm familiar with</h4>
@@ -28,10 +28,10 @@
         {% endif %}
         {% endfor %}
       </ul>
-      <button class="category__more" type="button">Click to view all</button>
+      <button class="category__more" tabindex="-1" type="button">Click to view all</button>
     </div>
   </article>
-  <article class="skills__category skills__category--aware" role="button" aria-controls="modal-aware">
+  <article class="skills__category skills__category--aware" role="button" aria-controls="modal-aware" tabindex="0">
     <div class="category__heading">
       <span class="category__icon">{%- include images/icons/aware.svg -%}</span>
       <h4 class="category__title">Things I'm aware of</h4>
@@ -44,7 +44,7 @@
         {% endif %}
         {% endfor %}
       </ul>
-      <button class="category__more" type="button">Click to view all</button>
+      <button class="category__more" tabindex="-1" type="button">Click to view all</button>
     </div>
   </article>
 </section>

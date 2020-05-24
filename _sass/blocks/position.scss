@@ -3,6 +3,10 @@
   font-size: 1.618rem;
   text-align: center;
 
+  @include media('tablet', 'maximum') {
+    font-size: 1.25rem;
+  }
+
   &__company {
     color: $background-light;
   }

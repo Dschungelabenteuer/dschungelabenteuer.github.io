@@ -107,16 +107,33 @@ used:
     featured: false
 aware:
   - label: UX & Accessibility
-    description:
+    description: "User Experience is a wide subject which now has its own training and jobs.
+    Even though I have never worked officially as an UX Designer, I am able to show empathy
+    and put myself in the end users' shoes and jointly study their needs and frustrations to
+    provide them with a better overall experience. I think that accessibility is a part of
+    the User Experience: not providing the same information and usability to an end user
+    with or without some type of impairment or disability is a kind of discrimination. Which
+    I obviously can't support. This is why I pay special attention to accessibility. Long live
+    the WAI!"
     featured: true
   - label: Internationalization
-    description:
+    description: "I graduated from university with a master degree in Translation,
+    Localization and Multilingual and Multimedia Communication Professions. It gives me a
+    slightly different insight on how translation systems should be set up in applications
+    since I am aware of translators' needs and the importance of good-quality and consistent
+    translations and technical writing."
     featured: true
   - label: Web security
-    description:
+    description: "Security is one major concern when developing applications. Throughout the years,
+    I have learnt about and how to protect applications against security issues such as SQL injections,
+    CSRF and XSS attacks, misconfiguration exploits and broken authentication systems."
     featured: true
   - label: Web performance
-    description:
+    description: "We developers are all concerned about performance. Both back- and front-end developers.
+    There are a lot of things to learn outthere about performance. With this in mind, I made sure to
+    understand how browsers and programming languages I know work behind the scenes. I'm quite familiar
+    with best practices, strategies and concerns such as Critical CSS, Flash Of Unstyled Text,
+    First Input Delay, Lazy Loading, inlining etc."
     featured: true
   - label: Search Engine Optimization
     description:

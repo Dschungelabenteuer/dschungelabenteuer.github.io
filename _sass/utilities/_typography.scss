@@ -13,18 +13,14 @@ html {
   font-size: 100%;
 
   @include media('phone', 'maximum') {
-    font-size: 125%;
-  }
-
-  @include media('phablet', 'only') {
     font-size: 118.75%;
   }
 
-  @include media('tablet', 'only') {
+  @include media('phablet', 'only') {
     font-size: 112.5%;
   }
 
-  @include media('small', 'only') {
+  @include media('tablet', 'only') {
     font-size: 106.25%;
   }
 }

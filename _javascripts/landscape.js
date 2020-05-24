@@ -49,6 +49,7 @@ const setParallax = () => {
 const unsetParallax = () => {
   window.removeEventListener('scroll', parallaxListener);
 };
+
 /**
  * Smoothly slides in the landscape when all images are loaded.
  */
@@ -78,6 +79,7 @@ const toggleLandscape = () => {
  * when all layers are loaded.
  */
 export default () => {
+  const disableParallaxBtn = document.querySelector('.js-disable-parallax');
   const layerCount = layers.length;
   let loadedLayerCount = 0;
 
@@ -95,5 +97,12 @@ export default () => {
           onLoadedLayer(layers[layer]);
         }
       });
+  }
+
+  if (disableParallaxBtn) {
+    disableParallaxBtn.onclick = () => {
+      unsetParallax();
+      disableParallaxBtn.parentNode.removeChild(disableParallaxBtn);
+    }
   }
 };

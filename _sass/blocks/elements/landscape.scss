@@ -5,6 +5,32 @@
   background: $background-dark;
   overflow: hidden;
 
+  &__disable {
+    position: absolute;
+    left: calc(50% - 1.5rem);
+    bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border: 0;
+    border-radius: $radius-s;
+    background: rgba($color-black, 0.2);
+    cursor: pointer;
+    transition: all 200ms ease;
+    z-index: 12;
+
+    &:hover {
+      background: rgba($color-black, 0.3);
+
+      svg {
+        fill: $background-light;
+      }
+    }
+
+    svg {
+      transition: all 200ms ease;
+      fill: $color-dark-text;
+    }
+  }
+
   &__layer {
     position: fixed;
     width: $aside-width;

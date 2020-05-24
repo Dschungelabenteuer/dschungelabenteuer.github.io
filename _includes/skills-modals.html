@@ -5,9 +5,9 @@
       <h4 class="category__title">Things I'm familiar with</h4>
     </article>
     {% for item in site.data.skills.familiar %}
-    <article class="skill__detail">
-    <h5>{{ item.label }}</h5>
-    {{ item.description }}
+    <article class="skill__detail{% if item.description %} has-desc{% endif %}{% if item.label == 'Disclaimer' %} disclaimer{% endif %}">
+      <h5>{{ item.label }}</h5>
+      {{ item.description }}
     </article>
     {% endfor %}
   </div>
@@ -19,9 +19,9 @@
       <h4 class="category__title">Things I've used</h4>
     </article>
     {% for item in site.data.skills.used %}
-    <article class="skill__detail">
-    <h5>{{ item.label }}</h5>
-    {{ item.description }}
+    <article class="skill__detail{% if item.description %} has-desc{% endif %}{% if item.label == 'Disclaimer' %} disclaimer{% endif %}">
+      <h5>{{ item.label }}</h5>
+      {{ item.description }}
     </article>
     {% endfor %}
   </div>
@@ -31,12 +31,11 @@
     <article class="skill__category skill__category--aware">
       <span class="category__icon">{%- include images/icons/aware.svg -%}</span>
       <h4 class="category__title">Things I'm aware of</h4>
-      <ul class="category__set">
     </article>
     {% for item in site.data.skills.aware %}
-    <article class="skill__detail">
-    <h5>{{ item.label }}</h5>
-    {{ item.description }}
+    <article class="skill__detail{% if item.description %} has-desc{% endif %}{% if item.label == 'Disclaimer' %} disclaimer{% endif %}">
+      <h5>{{ item.label }}</h5>
+      {{ item.description }}
     </article>
     {% endfor %}
   </div>

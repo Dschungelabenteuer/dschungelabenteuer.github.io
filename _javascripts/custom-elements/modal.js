@@ -3,28 +3,45 @@
  */
 import closeIcon from '../../_includes/images/icons/close.svg';
 
+let activeModal = '';
+
+const openModal = (targetModal) => {
+  activeModal = targetModal.getAttribute('id');
+  targetModal.classList.add('visible');
+  document.querySelector('body').style.overflow = 'hidden';
+  targetModal.shadowRoot.querySelector('.modal__closeBtn').focus();
+}
+
+const closeModal = (element) => {
+  const id = element.getAttribute('id');
+  const toggler = document.querySelector(`[aria-controls="${id}"]`);
+  activeModal = '';
+  element.classList.remove('visible');
+  document.querySelector('body').style.overflow = 'auto';
+  if (toggler) {
+    toggler.focus();
+  }
+};
+
+const keyboardSupport = (element, event) => {
+  if (event.keyCode === 27 && element.getAttribute('id') === activeModal) {
+    closeModal(element);
+  }
+};
+
 export const initModals = () => {
   const modalTogglers = document.querySelectorAll('[aria-controls^=modal]');
   for (let modalToggler of modalTogglers) {
     let targetModal = document.getElementById(modalToggler.getAttribute('aria-controls'));
     if (targetModal) {
-      modalToggler.onclick = () => {
-        targetModal.classList.add('visible');
-        document.querySelector('body').style.overflow = 'hidden';
-        targetModal.focus();
+      modalToggler.onclick = () => openModal(targetModal);
+      modalToggler.onkeydown = (event) => {
+        if (event.keyCode === 13) {
+          event.preventDefault();
+          openModal(targetModal);
+        }
       };
     }
-  }
-};
-
-const closeModal = (element) => {
-  element.classList.remove('visible');
-  document.querySelector('body').style.overflow = 'auto';
-};
-
-const keyboardSupport = (element, event) => {
-  if (event.keyCode === 27) {
-    closeModal(element);
   }
 };
 
