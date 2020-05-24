@@ -15,9 +15,6 @@
         "jsx": true
       }
   },
-  "plugins": [
-      "vue"
-  ],
   "rules": {
       "semi": ["warn", "always"],
       "comma-dangle": ["error", {
@@ -27,11 +24,6 @@
           "exports": "never",
           "functions": "never"
       }],
-      "space-before-function-paren": ["error", "never"],
-      "vue/html-self-closing": ["warn", {
-          "html": {
-              "void": "any"
-          }
-      }]
+      "space-before-function-paren": ["error", "never"]
   }
 }
