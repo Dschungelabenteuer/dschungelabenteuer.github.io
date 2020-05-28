@@ -4,13 +4,13 @@ const cachedFiles = [
   './favicon.ico',
   './assets/app.js',
   './assets/main.css',
-  './assets/images/landscape/background.svg',
-  './assets/images/landscape/foreground.svg',
-  './assets/images/landscape/layer1.svg',
-  './assets/images/landscape/layer2.svg',
-  './assets/images/landscape/layer3.svg',
-  './assets/images/landscape/layer4.svg',
-  './assets/images/landscape/stars.svg',
+  './assets/images/landscape/background.png',
+  './assets/images/landscape/foreground.png',
+  './assets/images/landscape/layer1.png',
+  './assets/images/landscape/layer2.png',
+  './assets/images/landscape/layer3.png',
+  './assets/images/landscape/layer4.png',
+  './assets/images/landscape/stars.png',
 ];
 
 self.addEventListener("install", (event) => {

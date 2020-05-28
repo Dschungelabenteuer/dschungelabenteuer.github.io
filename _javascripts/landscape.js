@@ -65,7 +65,7 @@ const toggleLandscape = () => {
     let layerName = layers[layer];
     let layerNode = document.querySelector(`[data-layer="${layerName}"]`);
     if (layerNode) {
-      layerNode.style.backgroundImage = `url("${layersData[layerName]}")`;
+      layerNode.style.backgroundImage = `url(${layersData[layerName]})`;
       layerNode.style.transform = `translateY(0)`;
     }
   }
@@ -88,7 +88,7 @@ export default () => {
   if (logo) logo.classList.add('visible');
 
   const onLoadedLayer = (layerName, data) => {
-    layersData[layerName] = `data:image/svg+xml;utf8,${encodeURIComponent(data)}`;
+    layersData[layerName] = data;
     ++loadedLayerCount;
     if (loadedLayerCount === layerCount) {
       toggleLandscape();
@@ -96,10 +96,10 @@ export default () => {
   };
 
   for (let layer in layers) {
-    fetch(`assets/images/landscape/${layers[layer]}.svg`, { cache: 'force-cache' })
-      .then(response => response.text())
-      .then(data => {
-        onLoadedLayer(layers[layer], data);
+    fetch(`assets/images/landscape/${layers[layer]}.png`, { cache: 'force-cache' })
+      .then(response => response.blob())
+      .then(blob => {
+        onLoadedLayer(layers[layer], URL.createObjectURL(blob));
       });
   }
 
