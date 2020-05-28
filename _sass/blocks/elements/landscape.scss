@@ -51,13 +51,13 @@
       width: 100%;
     }
 
-    &[data-layer="background"] {
+    &[data-layer^="background"] {
       background-position: top left;
       transform: translateY(-100vh);
       z-index: 1;
     }
 
-    &[data-layer="foreground"] {
+    &[data-layer^="foreground"] {
       position: absolute;
       width: 100%;
       background-position: top center;
@@ -65,7 +65,7 @@
       z-index: 7;
     }
 
-    &[data-layer="overflow"] {
+    &[data-layer^="overflow"] {
       position: absolute;
       width: 100%;
       background-color: $background-dark;
@@ -73,35 +73,41 @@
       z-index: 8;
     }
 
-    &[data-layer="layer1"] {
+    &[data-layer^="layer1"] {
       background-position: top right;
       transform: translateY(-180vh);
       z-index: 6;
     }
 
-    &[data-layer="layer2"] {
+    &[data-layer^="layer2"] {
       background-position: top left;
       transform: translateY(-160vh);
       z-index: 5;
     }
 
-    &[data-layer="layer3"] {
+    &[data-layer^="layer3"] {
       background-position: top center;
       transform: translateY(-140vh);
       z-index: 4;
     }
 
-    &[data-layer="layer4"] {
+    &[data-layer^="layer4"] {
       background-position: top left;
       transform: translateY(-120vh);
       z-index: 3;
     }
 
-    &[data-layer="stars"] {
+    &[data-layer^="stars"] {
+      opacity: 0;
+      transition: opacity 2s ease;
       z-index: 2;
+
+      &.visible {
+        opacity: 1;
+      }
     }
 
-    &[data-layer="logo"] {
+    &[data-layer^="logo"] {
       position: fixed;
       margin-top: 30vh;
       opacity: 0;
